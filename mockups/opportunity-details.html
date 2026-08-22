@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Opportunity Details - CampusConnect</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen flex-col md:flex-row">
+  
+  <!-- Mobile Header -->
+  <nav class="md:hidden sticky top-0 right-0 z-40 w-full h-16 flex items-center justify-between px-lg bg-surface border-b border-outline-variant shadow-sm">
+    <div class="flex items-center gap-sm">
+      <button id="mobile-menu-toggle" aria-label="Open Navigation Menu" class="text-on-surface-variant hover:text-primary p-2 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary">CampusConnect</a>
+    </div>
+    <a href="saved-opportunities.html" class="text-primary p-2">
+      <span class="material-symbols-outlined">bookmark</span>
+    </a>
+  </nav>
+
+  <!-- Side Navigation Bar (Desktop & Mobile Drawer) -->
+  <aside id="mobile-drawer" class="hidden md:flex flex-col py-xl px-md gap-sm h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant z-50 transition-transform duration-300">
+    <div class="mb-xl">
+      <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary block">CampusConnect</a>
+      <p class="text-label-sm font-label-sm text-on-surface-variant mt-1">Opportunity Overview</p>
+    </div>
+    
+    <nav class="flex-1 flex flex-col gap-2">
+      <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span> Dashboard
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="profile.html">
+        <span class="material-symbols-outlined">person</span> Profile
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="skills.html">
+        <span class="material-symbols-outlined">terminal</span> Skills
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md text-primary bg-secondary-fixed/30 border-r-2 border-primary" href="opportunities.html">
+        <span class="material-symbols-outlined">work</span> Opportunities
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="applications.html">
+        <span class="material-symbols-outlined">description</span> Applications
+      </a>
+    </nav>
+
+    <div class="mt-auto flex flex-col gap-2 border-t border-outline-variant pt-md">
+      <a class="flex items-center gap-3 px-4 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container transition-all" href="login.html">
+        <span class="material-symbols-outlined">logout</span> Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Canvas -->
+  <main class="flex-1 md:ml-64 p-4 md:p-8 lg:p-12 relative overflow-y-auto">
+    <div class="max-w-5xl mx-auto space-y-8">
+      
+      <!-- Back Link -->
+      <div>
+        <a href="opportunities.html" class="inline-flex items-center gap-xs text-primary font-label-md text-label-md hover:underline">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Marketplace
+        </a>
+      </div>
+
+      <!-- Header Section -->
+      <header class="glass-card rounded-xl p-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm border-l-4 border-l-primary-container">
+        <div class="flex items-center gap-6">
+          <div class="w-20 h-20 rounded-lg bg-surface-container-high flex items-center justify-center border border-outline-variant shrink-0">
+            <img alt="TechNova Logo" class="w-12 h-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqKhM9E-w5-HpPH8P2J3aqIXlJt4__yrtAQMoTGASvL90aVyFLX5JwFFDbL5OAvyhtQRJsOpKJgduvaqKZ_1Y2sPf2gorCSEAkoT8CnHV31WMg-lM0kZ5XsSKkXQ4jrW7QjxH5TzssSZuwqNr1qOO04x8bxHm4wgB8Pkz0yZCf2KRDIIYNxrCGrzQP4ambAsLjnRN9jqgm9dGvoT3D24uWkmKsKWSlf0EzvzsvWwTiUPFpEEyFUkSy1Q"/>
+          </div>
+          <div>
+            <h1 class="text-headline-lg font-headline-lg text-on-surface mb-2">Software Engineering Intern</h1>
+            <div class="flex flex-wrap gap-4 text-body-sm font-body-sm text-on-surface-variant">
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">domain</span> TechNova</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">location_on</span> Bangalore, India</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">payments</span> $1,200/mo</span>
+              <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">work</span> Internship</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-end gap-2 w-full md:w-auto">
+          <div class="flex gap-3 w-full md:w-auto">
+            <a href="saved-opportunities.html" class="flex-1 md:flex-none px-6 py-3 bg-surface border border-outline-variant text-on-surface rounded-lg text-label-md font-label-md hover:bg-surface-container transition-colors shadow-sm text-center">
+              Save Opportunity
+            </a>
+            <a href="applications.html" class="flex-1 md:flex-none px-6 py-3 bg-primary-container text-on-primary rounded-lg text-label-md font-label-md hover:bg-surface-tint transition-colors shadow-sm text-center">
+              Apply Now
+            </a>
+          </div>
+          <span class="text-label-sm font-label-sm text-error flex items-center gap-1 mt-1">
+            <span class="material-symbols-outlined text-[14px]">schedule</span> Deadline: Oct 15, 2026
+          </span>
+        </div>
+      </header>
+
+      <!-- Bento Grid Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-8">
+          <section class="bg-surface-container-lowest rounded-xl p-lg border border-outline-variant shadow-sm">
+            <h2 class="text-headline-md font-headline-md text-on-surface mb-4">Role Overview</h2>
+            <div class="text-body-md font-body-md text-on-surface-variant space-y-4">
+              <p>TechNova is seeking a motivated Software Engineering Intern to join our core platform team. In this role, you will help build scalable backend services and modern web interfaces that power our next-generation data analytics tools.</p>
+              <p>You will work alongside experienced engineers, participating in architectural discussions, code reviews, and agile sprints.</p>
+            </div>
+          </section>
+
+          <section class="bg-surface-container-lowest rounded-xl p-lg border border-outline-variant shadow-sm">
+            <h2 class="text-headline-md font-headline-md text-on-surface mb-4">Key Responsibilities</h2>
+            <ul class="space-y-3 text-body-md font-body-md text-on-surface-variant">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary-container mt-1">check_circle</span>
+                Develop and maintain RESTful APIs using Python and FastAPI.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary-container mt-1">check_circle</span>
+                Optimize SQL queries and database schemas for performance.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary-container mt-1">check_circle</span>
+                Collaborate with frontend developers to integrate APIs into intuitive user interfaces.
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-8">
+          <section class="bg-surface-container-lowest rounded-xl p-lg border border-outline-variant shadow-sm">
+            <h2 class="text-headline-md font-headline-md text-on-surface mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary-container">radar</span> Skill Match Overview
+            </h2>
+            <div class="space-y-5">
+              <div>
+                <div class="flex justify-between text-label-sm font-label-sm mb-1">
+                  <span class="text-on-surface">Python</span>
+                  <span class="text-primary-container font-semibold">90% Match</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary-container h-full rounded-full" style="width: 90%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-label-sm font-label-sm mb-1">
+                  <span class="text-on-surface">SQL &amp; PostgreSQL</span>
+                  <span class="text-primary-container font-semibold">85% Match</span>
+                </div>
+                <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+                  <div class="bg-primary-container h-full rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-primary-fixed/20 rounded-lg border border-primary-fixed-dim">
+              <a href="skill-gap-analysis.html" class="text-body-sm font-body-sm text-primary flex gap-2 items-center hover:underline">
+                <span class="material-symbols-outlined text-primary text-base">analytics</span>
+                Run skill gap analysis for this role
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Opportunity Marketplace - CampusConnect</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container/20 selection:text-primary min-h-screen">
+  
+  <!-- Top Navigation Bar -->
+  <nav class="sticky top-0 right-0 z-40 flex items-center justify-between px-lg bg-surface w-full h-16 border-b border-outline-variant">
+    <div class="flex items-center gap-md">
+      <button id="mobile-menu-toggle" aria-label="Open Navigation Menu" class="md:hidden text-on-surface-variant hover:text-primary p-2 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary">CampusConnect</a>
+    </div>
+
+    <div class="flex items-center gap-sm text-body-sm font-body-sm">
+      <a href="saved-opportunities.html" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors" title="Saved Jobs">
+        <span class="material-symbols-outlined">bookmark</span>
+      </a>
+      <a href="profile.html" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors" title="Profile">
+        <span class="material-symbols-outlined">account_circle</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Side Navigation Bar (Desktop & Mobile Drawer) -->
+  <aside id="mobile-drawer" class="hidden md:flex flex-col py-xl px-md gap-sm bg-surface-container-lowest h-screen w-64 fixed left-0 top-16 border-r border-outline-variant z-30 transition-transform duration-300">
+    <div class="flex-1 flex flex-col gap-sm">
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all text-label-md font-label-md" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all text-label-md font-label-md" href="profile.html">
+        <span class="material-symbols-outlined">person</span>
+        <span>Profile</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all text-label-md font-label-md" href="skills.html">
+        <span class="material-symbols-outlined">terminal</span>
+        <span>Skills</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-primary bg-secondary-fixed/30 border-r-2 border-primary transition-all text-label-md font-label-md" href="opportunities.html">
+        <span class="material-symbols-outlined">work</span>
+        <span>Opportunities</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all text-label-md font-label-md" href="applications.html">
+        <span class="material-symbols-outlined">description</span>
+        <span>Applications</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all text-label-md font-label-md" href="saved-opportunities.html">
+        <span class="material-symbols-outlined">bookmark</span>
+        <span>Saved Opportunities</span>
+      </a>
+    </div>
+
+    <div class="mt-auto flex flex-col gap-sm pt-md border-t border-outline-variant">
+      <a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all text-label-md font-label-md" href="login.html">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Log Out</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="md:ml-64 p-gutter md:p-xl flex-1 flex flex-col min-h-screen">
+    
+    <!-- Page Header & Search -->
+    <header class="mb-xl">
+      <h1 class="text-display font-display text-on-surface mb-md">Find opportunities built for you.</h1>
+      
+      <div class="flex flex-col md:flex-row gap-sm items-center bg-surface-container-lowest border border-outline-variant rounded-xl p-xs mb-md focus-within:ring-2 focus-within:ring-primary/20 transition-shadow">
+        <div class="flex items-center w-full px-md text-on-surface-variant">
+          <span class="material-symbols-outlined mr-sm">search</span>
+          <input class="w-full bg-transparent border-none focus:ring-0 text-body-md font-body-md py-sm text-on-surface placeholder-on-surface-variant/50 outline-none" placeholder="Search roles, companies, or keywords..." type="text"/>
+        </div>
+        <button class="w-full md:w-auto px-lg py-sm rounded-lg bg-primary-container text-on-primary text-label-md font-label-md hover:bg-surface-tint transition-colors flex items-center justify-center gap-xs whitespace-nowrap">
+          Search
+        </button>
+      </div>
+
+      <!-- Horizontal Filters -->
+      <div class="flex overflow-x-auto pb-sm gap-sm no-scrollbar border-b border-outline-variant">
+        <button class="px-md py-xs rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface text-label-sm font-label-sm hover:bg-surface-container-low flex items-center gap-xs whitespace-nowrap">
+          Opportunity Type <span class="material-symbols-outlined text-[16px]">expand_more</span>
+        </button>
+        <button class="px-md py-xs rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface text-label-sm font-label-sm hover:bg-surface-container-low flex items-center gap-xs whitespace-nowrap">
+          Role <span class="material-symbols-outlined text-[16px]">expand_more</span>
+        </button>
+        <button class="px-md py-xs rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface text-label-sm font-label-sm hover:bg-surface-container-low flex items-center gap-xs whitespace-nowrap">
+          Work Mode <span class="material-symbols-outlined text-[16px]">expand_more</span>
+        </button>
+        <button class="px-md py-xs rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface text-label-sm font-label-sm hover:bg-surface-container-low flex items-center gap-xs whitespace-nowrap">
+          Skills <span class="material-symbols-outlined text-[16px]">expand_more</span>
+        </button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-lg mt-md text-label-md font-label-md border-b border-outline-variant/50">
+        <button class="py-sm px-xs border-b-2 border-primary text-primary font-semibold transition-colors">All Opportunities</button>
+        <button class="py-sm px-xs border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors">Full-time Jobs</button>
+        <button class="py-sm px-xs border-b-2 border-transparent text-on-surface-variant hover:text-on-surface transition-colors">Internships</button>
+      </div>
+    </header>
+
+    <!-- Opportunity Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-lg">
+      
+      <!-- Card 1 -->
+      <article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg flex flex-col hover:border-primary/50 transition-colors relative group">
+        <div class="absolute top-lg right-lg">
+          <a href="saved-opportunities.html" aria-label="Save opportunity" class="text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">bookmark_border</span>
+          </a>
+        </div>
+        
+        <div class="flex items-start gap-md mb-md">
+          <div class="w-12 h-12 rounded-lg border border-outline-variant bg-surface flex items-center justify-center shrink-0 overflow-hidden">
+            <img class="w-full h-full object-cover" alt="TechNova Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMSeCfH_5aS_3bMR0WbSr7IU0ho5RMEMTVrv8d2dwESMapSKZ5wCNPBCtkrx9kssXCFvLMruaEVCuxP8jPjQFgnkc0HV43SnD-pafTUG_yDDcgWcTpd6PwFYb_ljiDepIY5JOw17RJqeq7r6EVO7wa3WMOtJp8yZdHr_UjHQVkvrVIFnFS33U8px9JUeVY3LXuWpehvwIBNKqwqSQJl36Bi1nfJ70xfu-9Xj04Mu2NRyDdBd5P6W2epA"/>
+          </div>
+          <div>
+            <h3 class="text-headline-md font-headline-md text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              <a href="opportunity-details.html">Software Engineering Intern</a>
+            </h3>
+            <p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-xs">
+              TechNova • Bangalore - Hybrid
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-md">
+          <div class="inline-flex items-center px-sm py-xs rounded-full bg-surface-container-high text-primary text-label-sm font-label-sm border border-primary-fixed">
+            <span class="material-symbols-outlined text-[14px] mr-xs">bolt</span>
+            92% Match
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-sm flex-1">
+          <div>
+            <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide block mb-xs">Required Skills</span>
+            <div class="flex flex-wrap gap-xs">
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">React</span>
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">TypeScript</span>
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-lg pt-md border-t border-outline-variant flex justify-end">
+          <a href="opportunity-details.html" class="px-md py-sm bg-surface-container-lowest border border-outline-variant text-on-surface rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors w-full text-center">
+            View Opportunity
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg flex flex-col hover:border-primary/50 transition-colors relative group">
+        <div class="absolute top-lg right-lg">
+          <a href="saved-opportunities.html" aria-label="Save opportunity" class="text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">bookmark_border</span>
+          </a>
+        </div>
+        
+        <div class="flex items-start gap-md mb-md">
+          <div class="w-12 h-12 rounded-lg border border-outline-variant bg-surface flex items-center justify-center shrink-0 overflow-hidden">
+            <img class="w-full h-full object-cover" alt="CloudStream Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHhLPncSLPrFENHglJpn4Qb9p46waXuPy6Gt6pDkdIHJYbsG2PiQqUTT_Z9aujHHkKimstByWm2N0xKjUQ0bEpsgXnHlC960iUmV4M9AprrifJzYDSXkY5gPSCaU7GjwhdpqhfIgvdgcMrrLtOuLRBnRUrq0kpaMTY4KSpSFZDIpn9fCH6RrDiDriYR339AF4pszZqABjqZfUO-GN1PuacJD6nk8MCEg45smxImhmiJ8So3De16I-58A"/>
+          </div>
+          <div>
+            <h3 class="text-headline-md font-headline-md text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              <a href="opportunity-details.html">Frontend Developer</a>
+            </h3>
+            <p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-xs">
+              CloudStream • Remote
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-md">
+          <div class="inline-flex items-center px-sm py-xs rounded-full bg-surface-container-high text-primary text-label-sm font-label-sm border border-primary-fixed">
+            <span class="material-symbols-outlined text-[14px] mr-xs">bolt</span>
+            85% Match
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-sm flex-1">
+          <div>
+            <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide block mb-xs">Required Skills</span>
+            <div class="flex flex-wrap gap-xs">
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">Vue.js</span>
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">CSS/Tailwind</span>
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">Figma</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-lg pt-md border-t border-outline-variant flex justify-end">
+          <a href="opportunity-details.html" class="px-md py-sm bg-surface-container-lowest border border-outline-variant text-on-surface rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors w-full text-center">
+            View Opportunity
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-lg flex flex-col hover:border-primary/50 transition-colors relative group">
+        <div class="absolute top-lg right-lg">
+          <a href="saved-opportunities.html" aria-label="Save opportunity" class="text-primary transition-colors">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+          </a>
+        </div>
+        
+        <div class="flex items-start gap-md mb-md">
+          <div class="w-12 h-12 rounded-lg border border-outline-variant bg-surface flex items-center justify-center shrink-0 overflow-hidden">
+            <img class="w-full h-full object-cover" alt="DataFlow Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfT3oXf7cnZTCoFF2Jrj3_SK93rpNm0rqph9EtG4elVf2JbXIQMw-MTEBUa0RR-viiWmei0Hl6MzB3f8y4DB-P9knUVuguDO41gTx5gC3LEjci2FTlzM4X_cIlQWpMnsleTwRkGWrvlrLJBL--yJYXGAU6qVkWjbq8leccbLouXARIze-3J-ncIxn4LHtjvgqOIMkwEtqa6Vl9HkEsX9UlLr2iNuqRkm1wqNME8nhg6Jqbb8AwCPVStQ"/>
+          </div>
+          <div>
+            <h3 class="text-headline-md font-headline-md text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              <a href="opportunity-details.html">Data Analyst Intern</a>
+            </h3>
+            <p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-xs">
+              DataFlow • Pune - On-site
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-md">
+          <div class="inline-flex items-center px-sm py-xs rounded-full bg-surface-container-high text-primary text-label-sm font-label-sm border border-primary-fixed">
+            <span class="material-symbols-outlined text-[14px] mr-xs">bolt</span>
+            98% Match
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-sm flex-1">
+          <div>
+            <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wide block mb-xs">Required Skills</span>
+            <div class="flex flex-wrap gap-xs">
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">Python</span>
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">SQL</span>
+              <span class="px-sm py-[2px] bg-surface-container rounded-md text-body-sm font-body-sm text-on-surface">Tableau</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-lg pt-md border-t border-outline-variant flex justify-end">
+          <a href="opportunity-details.html" class="px-md py-sm bg-surface-container-lowest border border-outline-variant text-on-surface rounded-lg text-label-md font-label-md hover:bg-surface-container-low transition-colors w-full text-center">
+            View Opportunity
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Sign Up - CampusConnect</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex items-center justify-center p-md">
+  <main class="w-full max-w-md mx-auto">
+    
+    <!-- Brand Header -->
+    <div class="text-center mb-xl">
+      <a href="index.html" class="font-headline-lg text-headline-lg text-primary tracking-tight mb-sm block">CampusConnect</a>
+      <p class="font-body-md text-body-md text-on-surface-variant">Create your account to start building your career-ready profile.</p>
+    </div>
+
+    <!-- Main Form Container -->
+    <div class="bg-surface-container-lowest border border-outline-variant p-xl shadow-sm rounded-lg relative overflow-hidden">
+      <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary"></div>
+      
+      <form action="dashboard.html" class="space-y-lg" method="GET">
+        <div class="bg-surface-container-low border border-outline-variant p-md rounded flex gap-sm items-start">
+          <span class="material-symbols-outlined text-primary text-[20px] shrink-0" style="font-variation-settings: 'FILL' 1;">info</span>
+          <p class="font-body-sm text-body-sm text-on-surface-variant m-0">Use your institutional email address (e.g., student@university.edu)</p>
+        </div>
+
+        <div class="space-y-md">
+          <div>
+            <label class="block font-label-sm text-label-sm text-on-surface mb-xs uppercase tracking-wider" for="fullName">Full Name</label>
+            <input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" id="fullName" name="fullName" placeholder="Jane Doe" required type="text"/>
+          </div>
+
+          <div>
+            <label class="block font-label-sm text-label-sm text-on-surface mb-xs uppercase tracking-wider" for="email">Institutional Email</label>
+            <input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" id="email" name="email" placeholder="jane.doe@university.edu" required type="email"/>
+          </div>
+
+          <div>
+            <label class="block font-label-sm text-label-sm text-on-surface mb-xs uppercase tracking-wider" for="password">Password</label>
+            <input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" id="password" name="password" placeholder="••••••••" required type="password"/>
+          </div>
+        </div>
+
+        <button class="w-full bg-primary-container text-on-primary font-label-md text-label-md py-md rounded hover:bg-surface-tint transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20" type="submit">
+          Create Account
+        </button>
+      </form>
+
+      <div class="mt-lg text-center border-t border-outline-variant pt-lg">
+        <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="login.html">
+          Already have an account? <span class="font-semibold text-on-surface">Log In</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="font-label-sm text-label-sm text-on-surface-variant text-center mt-xl px-lg">
+      CampusConnect is currently available to verified institutional users.
+    </p>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

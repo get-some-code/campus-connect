@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Dashboard - CampusConnect</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen">
+  
+  <!-- Top Navigation Bar -->
+  <header class="bg-surface-container-lowest border-b border-outline-variant fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg h-16 transition-colors">
+    <div class="flex items-center gap-md w-1/3">
+      <button id="mobile-menu-toggle" aria-label="Open Navigation Menu" class="md:hidden text-on-surface-variant hover:text-primary p-2 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <a href="index.html" class="text-headline-md font-headline-md font-bold text-primary">CampusConnect</a>
+    </div>
+
+    <div class="flex-1 max-w-md hidden md:block">
+      <div class="relative group">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">search</span>
+        <input class="w-full bg-surface-container-low border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-md py-2 pl-10 pr-4 text-body-sm font-body-sm text-on-surface placeholder:text-outline-variant transition-all outline-none" placeholder="Search jobs, skills, alumni..." type="text"/>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-md w-1/3 justify-end">
+      <button aria-label="Notifications" class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors relative">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+      </button>
+      <a href="profile.html" class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer hover:border-primary transition-colors block">
+        <img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxh_M7R9phK4wPoZCmtFt5w4n09-oDtcutJn4BycpILpkr1_JGS7Su269POIiPyk8A6vpNWSSrYLal3McphTopYtQjofxdkC4RL_ep8C5KSMrNZX8wjEpo5RU9Rjh0zO7Gn6gaY4lBXR1xwelECo1ZAuGJsOiHNpzwBa8bJYbyu9eakq8Z-YEEehGVXvNoTY6Oo4v3YeyhhPqnT88GS0t4Cv5G1i2a3KS3A63-H7PBW1afEbqbA8v8qA"/>
+      </a>
+    </div>
+  </header>
+
+  <!-- Side Navigation Bar (Desktop & Mobile Drawer) -->
+  <nav id="mobile-drawer" class="bg-surface-container-lowest border-r border-outline-variant fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col py-md px-sm overflow-y-auto z-40 hidden md:flex transition-transform duration-300">
+    <div class="mb-lg px-3">
+      <p class="text-label-sm font-label-sm text-outline-variant uppercase tracking-wider">CareerTech Portal</p>
+    </div>
+    
+    <ul class="flex flex-col gap-1 flex-1">
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-semibold rounded-lg transition-all text-label-md font-label-md" href="dashboard.html">
+          <span class="material-symbols-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="profile.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">person</span>
+          <span class="group-hover:text-on-surface transition-colors">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="skills.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">bolt</span>
+          <span class="group-hover:text-on-surface transition-colors">Skills</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="opportunities.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">work</span>
+          <span class="group-hover:text-on-surface transition-colors">Opportunities</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="applications.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">description</span>
+          <span class="group-hover:text-on-surface transition-colors">Applications</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="saved-opportunities.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">bookmark</span>
+          <span class="group-hover:text-on-surface transition-colors">Saved Jobs</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="skill-gap-analysis.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">analytics</span>
+          <span class="group-hover:text-on-surface transition-colors">Gap Analysis</span>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="empty-states.html">
+          <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">widgets</span>
+          <span class="group-hover:text-on-surface transition-colors">UI Library</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="mt-auto pt-4 border-t border-outline-variant flex flex-col gap-1">
+      <a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant rounded-lg hover:bg-surface-container transition-all text-label-md font-label-md group" href="login.html">
+        <span class="material-symbols-outlined group-hover:text-on-surface transition-colors">logout</span>
+        <span class="group-hover:text-on-surface transition-colors">Log Out</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="md:ml-64 mt-16 p-lg max-w-[1440px] mx-auto min-h-[calc(100vh-64px)]">
+    <!-- Page Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-xl gap-4">
+      <div>
+        <h1 class="text-headline-lg font-headline-lg text-on-background mb-1">Dashboard</h1>
+        <p class="text-body-md font-body-md text-on-surface-variant">Welcome back, Alex. Here's your career progress at a glance.</p>
+      </div>
+      <a href="opportunities.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-2 rounded-md hover:bg-surface-tint transition-colors flex items-center gap-2 shadow-sm active:scale-95">
+        <span class="material-symbols-outlined text-[20px]">bolt</span>
+        Quick Apply
+      </a>
+    </div>
+
+    <!-- Top Stats Bento -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+      <a href="profile.html" class="bg-surface-container-lowest p-lg rounded-lg border border-outline-variant flex flex-col gap-2 relative overflow-hidden group hover:border-primary transition-colors">
+        <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/5 rounded-full blur-xl group-hover:bg-primary-container/10 transition-colors"></div>
+        <div class="flex items-center justify-between text-on-surface-variant mb-1">
+          <span class="text-label-md font-label-md">Profile Strength</span>
+          <span class="material-symbols-outlined text-[20px]">trending_up</span>
+        </div>
+        <div class="text-headline-lg font-headline-lg text-on-background">85%</div>
+        <div class="w-full bg-surface-variant h-1 mt-2 rounded-full overflow-hidden">
+          <div class="bg-primary-container h-full w-[85%] rounded-full"></div>
+        </div>
+      </a>
+
+      <a href="skills.html" class="bg-surface-container-lowest p-lg rounded-lg border border-outline-variant flex flex-col gap-2 group hover:border-primary transition-colors">
+        <div class="flex items-center justify-between text-on-surface-variant mb-1">
+          <span class="text-label-md font-label-md">Skills Mastered</span>
+          <span class="material-symbols-outlined text-[20px]">verified</span>
+        </div>
+        <div class="text-headline-lg font-headline-lg text-on-background">12</div>
+        <p class="text-body-sm font-body-sm text-outline-variant">+2 this month</p>
+      </a>
+
+      <a href="applications.html" class="bg-surface-container-lowest p-lg rounded-lg border border-outline-variant flex flex-col gap-2 group hover:border-primary transition-colors">
+        <div class="flex items-center justify-between text-on-surface-variant mb-1">
+          <span class="text-label-md font-label-md">Active Applications</span>
+          <span class="material-symbols-outlined text-[20px]">send</span>
+        </div>
+        <div class="text-headline-lg font-headline-lg text-on-background">5</div>
+        <p class="text-body-sm font-body-sm text-outline-variant">2 awaiting response</p>
+      </a>
+
+      <a href="skills.html" class="bg-surface-container-lowest p-lg rounded-lg border border-outline-variant flex flex-col gap-2 group hover:border-primary transition-colors">
+        <div class="flex items-center justify-between text-on-surface-variant mb-1">
+          <span class="text-label-md font-label-md">Mentorship Sessions</span>
+          <span class="material-symbols-outlined text-[20px]">group</span>
+        </div>
+        <div class="text-headline-lg font-headline-lg text-on-background">3</div>
+        <p class="text-body-sm font-body-sm text-outline-variant">Next in 2 days</p>
+      </a>
+    </div>
+
+    <!-- Main Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+      <!-- Left Column -->
+      <div class="lg:col-span-2 flex flex-col gap-gutter">
+        
+        <!-- Upcoming Interviews -->
+        <section class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg">
+          <div class="flex justify-between items-center mb-md border-b border-surface-variant pb-2">
+            <h2 class="text-headline-md font-headline-md text-on-background">Upcoming Interviews</h2>
+            <a href="applications.html" class="text-label-sm font-label-sm text-primary hover:text-primary-container transition-colors">View All</a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="group flex items-center justify-between p-3 rounded-md hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant cursor-pointer">
+              <a href="application-details.html" class="flex items-center gap-4 flex-1">
+                <div class="w-12 h-12 rounded-md bg-surface border border-outline-variant flex items-center justify-center p-2">
+                  <img alt="Stripe Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdlay9d_fHLjh-2jAa5Yq8Ruo9lSxLXZGURKWSD1uOBev1YXuxts27QU5ovaG37e2al_ETq4awtsGbK3tx0y-47e6mPnlElLPTOQAfbA6QOROpTTUHJR5ODuJq2sX4ovYofDOrraWBukebekPNl3-JLVJiDXvhE2WuxUA3cIvkkq4ceKuAKh5bKr4WE2AWiqr6qlonw8avyJ1hG7davIAnzBuzGiOAQ5sszby_D-lIB-ivM5ORGAdahg"/>
+                </div>
+                <div>
+                  <h3 class="text-label-md font-label-md text-on-background group-hover:text-primary transition-colors">Frontend Engineer Intern</h3>
+                  <p class="text-body-sm font-body-sm text-on-surface-variant">Stripe • Today, 2:00 PM</p>
+                </div>
+              </a>
+              <a href="skill-assessment.html" class="px-4 py-1.5 border border-outline-variant rounded-md text-label-sm font-label-sm text-on-background hover:bg-surface-container transition-colors bg-surface-container-lowest">Prepare</a>
+            </div>
+            <div class="w-full h-px bg-surface-variant"></div>
+            <div class="group flex items-center justify-between p-3 rounded-md hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant cursor-pointer">
+              <a href="application-details.html" class="flex items-center gap-4 flex-1">
+                <div class="w-12 h-12 rounded-md bg-surface border border-outline-variant flex items-center justify-center p-2">
+                  <img alt="Figma Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrLg8s8-NUnCACCarQ1rm8mMWHjurc2gzO5uxTScMZ_8Qco2WzHqQ_8IUBibF2nZbZDWOHu9j5YdxBE3Upo8Vt8pM1amT3MQv5pA4Ain195k6RyIVYxMIEC0a2DmHSns9UV1xEWtSM9i8WAFmJaLhbRcOe_ewghIMYfeGp-y_97_uvIUEg5PpaBkmvenQUBjWcpXmoRXHhHQlidbWvuace2DTzbpFnrutz7y6SvfvtzU9KqxclYV_9_w"/>
+                </div>
+                <div>
+                  <h3 class="text-label-md font-label-md text-on-background group-hover:text-primary transition-colors">UX Research Assistant</h3>
+                  <p class="text-body-sm font-body-sm text-on-surface-variant">Figma • Tomorrow, 10:30 AM</p>
+                </div>
+              </a>
+              <a href="skill-assessment.html" class="px-4 py-1.5 border border-outline-variant rounded-md text-label-sm font-label-sm text-on-background hover:bg-surface-container transition-colors bg-surface-container-lowest">Prepare</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recommended for You -->
+        <section class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg">
+          <div class="flex justify-between items-center mb-md border-b border-surface-variant pb-2">
+            <h2 class="text-headline-md font-headline-md text-on-background">Recommended for You</h2>
+            <a href="opportunities.html" class="text-label-sm font-label-sm text-primary hover:text-primary-container transition-colors">Explore</a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="opportunity-details.html" class="border border-outline-variant rounded-md p-4 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow hover:border-primary/50 bg-surface-container-lowest flex flex-col group">
+              <div class="flex justify-between items-start mb-3">
+                <div class="w-10 h-10 rounded-md bg-surface border border-outline-variant flex items-center justify-center p-1.5">
+                  <img alt="Vercel Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQd4_2XkmtmFxhT72ZmyAbJaUBRwJQn_vrBbgWoUt77LxSHuwu-2Mfe3tIOUNEtOpEgGWl8zauiygBzyVotiKEUuGhP07wpLCmeQqeMFwD0xrekI9O_dKWkik5ulE7BebUHNeNJYDGIy9RYRCeFYoYhZ5XT7iTj2kWHrzv7IIhNSj3SnhzsKK_IIuC59tSBsZYl-Fl9dHi9q1Bc61qb2_BtRJseIsvqCeQRQH6K2cfFRBA_vsAN4IS1A"/>
+                </div>
+                <span class="text-outline-variant group-hover:text-primary transition-colors"><span class="material-symbols-outlined">bookmark_border</span></span>
+              </div>
+              <h3 class="text-label-md font-label-md text-on-background mb-1 group-hover:text-primary transition-colors">React Developer</h3>
+              <p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Vercel • Remote • $80k - $100k</p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded text-label-sm font-label-sm">React</span>
+                <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded text-label-sm font-label-sm">TypeScript</span>
+              </div>
+            </a>
+
+            <a href="opportunity-details.html" class="border border-outline-variant rounded-md p-4 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow hover:border-primary/50 bg-surface-container-lowest flex flex-col border-l-2 border-l-primary group">
+              <div class="flex justify-between items-start mb-3">
+                <div class="w-10 h-10 rounded-md bg-surface border border-outline-variant flex items-center justify-center p-1.5">
+                  <img alt="Anthropic Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATiA3bCYlSEs3Bn4ro9HWL6NDYFmZHKkWOuvpOOYv6fl1Jb1AHqdmUSl0zP70xLcHfImKgG-flUDFl7PLiggOWx4ItfAoYrx2hiAjUoP92k1UWqY7p4IbQmx3WHmEolb-rLaIz4L5MrcxeGv7ZvV3jjCHETAGjbwTzUJhq5b6mHd-J4XVcHfjZAq7k82RXaqq7go0SZhgwOhE40G1m1VXyjtvDxQOWEtpzIiUaf9ghDz7uTo6VFlIsyg"/>
+                </div>
+                <span class="bg-surface-container-low text-primary px-2 py-0.5 rounded text-[10px] font-label-sm uppercase tracking-wider font-bold">Top Match</span>
+              </div>
+              <h3 class="text-label-md font-label-md text-on-background mb-1 group-hover:text-primary transition-colors">Data Science Intern</h3>
+              <p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Anthropic • San Francisco • $45/hr</p>
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded text-label-sm font-label-sm">Python</span>
+                <span class="bg-surface-variant text-on-surface px-2 py-0.5 rounded text-label-sm font-label-sm">ML</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="flex flex-col gap-gutter">
+        
+        <!-- Learning Progress -->
+        <section class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg">
+          <div class="flex justify-between items-center mb-md border-b border-surface-variant pb-2">
+            <h2 class="text-headline-md font-headline-md text-on-background">Learning Progress</h2>
+            <a href="skills.html" class="text-label-sm font-label-sm text-primary hover:text-primary-container transition-colors">View All</a>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div>
+              <div class="flex justify-between text-body-sm font-body-sm mb-1">
+                <span class="text-on-background font-medium">Advanced React Patterns</span>
+                <span class="text-outline-variant">75%</span>
+              </div>
+              <div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+                <div class="bg-secondary-container h-full w-[75%] rounded-full"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-body-sm font-body-sm mb-1">
+                <span class="text-on-background font-medium">Data Structures &amp; Algorithms</span>
+                <span class="text-outline-variant">40%</span>
+              </div>
+              <div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+                <div class="bg-secondary-container h-full w-[40%] rounded-full"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-body-sm font-body-sm mb-1">
+                <span class="text-on-background font-medium">System Design Basics</span>
+                <span class="text-outline-variant">10%</span>
+              </div>
+              <div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+                <div class="bg-secondary-container h-full w-[10%] rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Activity Timeline -->
+        <section class="bg-surface-container-lowest rounded-lg border border-outline-variant p-lg flex-1">
+          <h2 class="text-headline-md font-headline-md text-on-background mb-md border-b border-surface-variant pb-2">Recent Activity</h2>
+          <div class="relative border-l border-outline-variant ml-3 mt-4 space-y-6">
+            <div class="relative pl-6">
+              <span class="absolute -left-1.5 top-1 w-3 h-3 bg-surface-container-lowest border-2 border-primary rounded-full"></span>
+              <div class="flex flex-col">
+                <a href="applications.html" class="text-label-md font-label-md text-on-background hover:text-primary transition-colors">Applied to Stripe</a>
+                <span class="text-body-sm font-body-sm text-outline-variant">Frontend Engineer Intern • 2 hours ago</span>
+              </div>
+            </div>
+            <div class="relative pl-6">
+              <span class="absolute -left-1.5 top-1 w-3 h-3 bg-surface border-2 border-outline-variant rounded-full"></span>
+              <div class="flex flex-col">
+                <a href="skill-assessment.html" class="text-label-md font-label-md text-on-background hover:text-primary transition-colors">Skill Assessment Completed</a>
+                <span class="text-body-sm font-body-sm text-outline-variant">React Level 3 • Yesterday</span>
+              </div>
+            </div>
+            <div class="relative pl-6">
+              <span class="absolute -left-1.5 top-1 w-3 h-3 bg-surface border-2 border-outline-variant rounded-full"></span>
+              <div class="flex flex-col">
+                <a href="profile.html" class="text-label-md font-label-md text-on-background hover:text-primary transition-colors">Profile Updated</a>
+                <span class="text-body-sm font-body-sm text-outline-variant">Added 2 new projects • 3 days ago</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

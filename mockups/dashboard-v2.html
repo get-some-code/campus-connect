@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="h-full light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Executive Dashboard - CampusConnect</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+  <style>
+    .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+    .card { background-color: #ffffff; border: 1px solid #E5E7EB; border-radius: 0.5rem; }
+    .progress-bar-bg { background-color: #F1F3FF; }
+    .progress-bar-fill { background-color: #4F46E5; }
+  </style>
+</head>
+<body class="h-full flex flex-col md:flex-row text-on-surface bg-background min-h-screen">
+  
+  <!-- Mobile Header -->
+  <header class="md:hidden flex justify-between items-center px-lg w-full sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant h-16">
+    <div class="flex items-center gap-sm">
+      <button id="mobile-menu-toggle" aria-label="Open Navigation Menu" class="text-on-surface-variant hover:text-primary p-2 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary">CampusConnect</a>
+    </div>
+    <a href="profile.html" class="text-on-surface hover:text-primary transition-colors">
+      <span class="material-symbols-outlined">account_circle</span>
+    </a>
+  </header>
+
+  <!-- Side Navigation Bar (Desktop & Mobile Drawer) -->
+  <nav id="mobile-drawer" class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 py-lg bg-surface-container-low border-r border-outline-variant z-40 transition-transform duration-300">
+    <div class="px-lg pb-xl border-b border-outline-variant mb-md">
+      <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary block">CampusConnect</a>
+      <p class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs">Executive Portal</p>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto px-md">
+      <ul class="flex flex-col gap-sm">
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all text-primary font-bold bg-primary-fixed-dim/20 rounded" href="dashboard-v2.html">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="font-label-md text-label-md">Dashboard v2</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="dashboard.html">
+            <span class="material-symbols-outlined">space_dashboard</span>
+            <span class="font-label-md text-label-md">Standard View</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="profile.html">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-label-md text-label-md">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="skills.html">
+            <span class="material-symbols-outlined">verified</span>
+            <span class="font-label-md text-label-md">Skills</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="skill-assessment.html">
+            <span class="material-symbols-outlined">quiz</span>
+            <span class="font-label-md text-label-md">Assessment</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="opportunities.html">
+            <span class="material-symbols-outlined">work</span>
+            <span class="font-label-md text-label-md">Jobs</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="applications.html">
+            <span class="material-symbols-outlined">description</span>
+            <span class="font-label-md text-label-md">Applications</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-auto px-md pt-md border-t border-outline-variant">
+      <a class="flex items-center gap-md px-lg py-md w-full transition-all hover:bg-surface-container-high rounded text-on-surface-variant" href="login.html">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="font-label-md text-label-md">Log Out</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 md:ml-64 p-md md:p-xl max-w-[1440px] mx-auto w-full">
+    <!-- Welcome Header -->
+    <header class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-lg">
+      <div>
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">Welcome back, Alex.</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">Software Engineering Track • Year 3</p>
+      </div>
+      
+      <div class="flex items-center gap-md bg-surface-container-lowest border border-outline-variant p-md rounded-lg shadow-sm">
+        <div class="flex-shrink-0">
+          <svg class="w-12 h-12 text-primary" viewBox="0 0 36 36">
+            <path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+            <path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="78, 100" stroke-width="4"></path>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Career Readiness</p>
+          <p class="font-headline-md text-headline-md"><span class="text-primary font-bold">78</span><span class="text-on-surface-variant text-body-sm font-normal">/100</span></p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Bento Grid Layout -->
+    <div class="bento-grid">
+      <!-- Readiness Breakdown -->
+      <section class="col-span-12 lg:col-span-8 card p-lg">
+        <div class="flex justify-between items-center mb-lg border-b border-outline-variant pb-sm">
+          <h3 class="font-headline-md text-headline-md">Readiness Breakdown</h3>
+          <a href="skills.html" class="text-label-sm font-label-sm text-primary hover:underline">Full Skill Matrix</a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <div>
+            <div class="flex justify-between mb-xs">
+              <span class="font-label-md text-label-md text-on-surface">Technical Skills</span>
+              <span class="font-label-md text-label-md text-on-surface-variant">85%</span>
+            </div>
+            <div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+              <div class="h-full progress-bar-fill rounded-full" style="width: 85%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-xs">
+              <span class="font-label-md text-label-md text-on-surface">Problem Solving</span>
+              <span class="font-label-md text-label-md text-on-surface-variant">82%</span>
+            </div>
+            <div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+              <div class="h-full progress-bar-fill rounded-full" style="width: 82%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-xs">
+              <span class="font-label-md text-label-md text-on-surface">Communication</span>
+              <span class="font-label-md text-label-md text-on-surface-variant">65%</span>
+            </div>
+            <div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+              <div class="h-full progress-bar-fill rounded-full" style="width: 65%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-xs">
+              <span class="font-label-md text-label-md text-on-surface">Industry Readiness</span>
+              <span class="font-label-md text-label-md text-on-surface-variant">70%</span>
+            </div>
+            <div class="h-2 w-full progress-bar-bg rounded-full overflow-hidden">
+              <div class="h-full progress-bar-fill rounded-full" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill Gaps -->
+      <section class="col-span-12 lg:col-span-4 card p-lg bg-surface-container-lowest border-l-4 border-l-error">
+        <div class="flex justify-between items-center mb-md">
+          <h3 class="font-headline-md text-headline-md flex items-center gap-sm">
+            <span class="material-symbols-outlined text-error">trending_down</span>
+            Priority Gaps
+          </h3>
+          <a href="skill-gap-analysis.html" class="text-label-sm font-label-sm text-primary hover:underline">Analyze</a>
+        </div>
+        
+        <ul class="space-y-md">
+          <li class="flex flex-col">
+            <span class="font-label-md text-label-md text-on-surface">System Design</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Required for Sr. Intern roles</span>
+          </li>
+          <li class="flex flex-col">
+            <span class="font-label-md text-label-md text-on-surface">Agile Methodologies</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Frequently requested by top matches</span>
+          </li>
+          <li class="flex flex-col">
+            <span class="font-label-md text-label-md text-on-surface">Public Speaking</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Holding back communication score</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

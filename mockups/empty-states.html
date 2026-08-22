@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Empty States Library - CampusConnect</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col md:flex-row font-body-md">
+  
+  <!-- Mobile Header -->
+  <header class="md:hidden flex justify-between items-center px-lg w-full sticky top-0 z-50 bg-surface-container-lowest h-16 border-b border-outline-variant">
+    <div class="flex items-center gap-sm">
+      <button id="mobile-menu-toggle" aria-label="Open Navigation Menu" class="text-on-surface-variant hover:text-primary p-2 rounded-lg transition-colors">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary">CampusConnect</a>
+    </div>
+    <a href="profile.html">
+      <span class="material-symbols-outlined text-[24px]">account_circle</span>
+    </a>
+  </header>
+
+  <!-- Side Navigation Bar (Desktop & Mobile Drawer) -->
+  <nav id="mobile-drawer" class="bg-surface-container-low h-screen w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col py-lg hidden md:flex z-40 transition-transform duration-300">
+    <div class="px-lg pb-xl">
+      <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary block">CampusConnect</a>
+      <p class="font-label-sm text-label-sm text-on-surface-variant mt-1">UI Component Library</p>
+    </div>
+    
+    <div class="flex-1 flex flex-col gap-sm mt-md px-md">
+      <a class="flex items-center gap-md px-md py-md w-full transition-all text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="font-label-md text-label-md">Dashboard</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-md w-full transition-all text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="profile.html">
+        <span class="material-symbols-outlined">person</span>
+        <span class="font-label-md text-label-md">Profile</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-md w-full transition-all text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="skills.html">
+        <span class="material-symbols-outlined">verified</span>
+        <span class="font-label-md text-label-md">Skills</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-md w-full transition-all text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="opportunities.html">
+        <span class="material-symbols-outlined">work</span>
+        <span class="font-label-md text-label-md">Jobs</span>
+      </a>
+      <a class="flex items-center gap-md px-md py-md w-full transition-all text-primary font-bold bg-primary-fixed-dim/20 rounded-lg" href="empty-states.html">
+        <span class="material-symbols-outlined">widgets</span>
+        <span class="font-label-md text-label-md">UI Library</span>
+      </a>
+    </div>
+
+    <div class="mt-auto px-md">
+      <a class="flex items-center gap-md px-md py-md w-full transition-all text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="login.html">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="font-label-md text-label-md">Log Out</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+    <!-- Desktop Header -->
+    <header class="bg-surface-container-lowest w-full h-16 border-b border-outline-variant hidden md:flex justify-between items-center px-lg sticky top-0 z-30">
+      <div class="flex-1 max-w-md relative">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+        <input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 font-body-sm text-body-sm focus:outline-none focus:border-primary transition-all outline-none" placeholder="Search empty states..." type="text"/>
+      </div>
+      <div class="flex items-center gap-md">
+        <a href="profile.html" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high">
+          <span class="material-symbols-outlined">account_circle</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Canvas -->
+    <div class="p-4 md:p-xl flex-1 flex flex-col gap-xl max-w-[1440px] mx-auto w-full">
+      <div class="mb-lg">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-sm">Empty States Library</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant">Standardized structural patterns for initial user onboarding and empty data views.</p>
+      </div>
+
+      <!-- Bento Grid Layout for Empty States -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+        
+        <!-- 1. No Skills -->
+        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center text-center min-h-[400px] hover:shadow-lg transition-shadow duration-300 group">
+          <div class="w-48 h-48 mb-xl relative opacity-80 group-hover:opacity-100 transition-opacity">
+            <img alt="No Skills Illustration" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCzXjxZbB-4wseI0QDxihqnS1JVie5LqweshAU8O5f4ZceEvYT2DDq0_rz_5lix6XGq5-Qq7oAqBGJ_MbfzPHjYXbHHvgC7gDbTZK8b12k4hqzMmXO6z49odMRCn4I9Lk9Hq1aau2PSYtvUS7gR2dIdOGO8wFmp5I0r_9CAFHa7ZY7UpiVY2oBHEC6olp-Fb4nlS66erEE8BICCJHpLwQnMRYi4wcLEVPG0DkKZpcAOU2qR3Fln-Z1QQ"/>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Skill Profile Incomplete</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-xl max-w-[280px]">
+            Quantify your capabilities to unlock personalized opportunities. Our diagnostic tools will map your strengths.
+          </p>
+          <a href="skill-assessment.html" class="bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-surface-tint transition-colors flex items-center gap-2">
+            Take Assessment
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- 2. No Assessments -->
+        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center text-center min-h-[400px] hover:shadow-lg transition-shadow duration-300 group">
+          <div class="w-48 h-48 mb-xl relative opacity-80 group-hover:opacity-100 transition-opacity">
+            <img alt="No Assessments Illustration" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrt-nO8M5TqbMzgzU7sfrX2xZdkz_-HbUj_YWpaeQAMwUkpadH_xabk-N6TZBnMWM4_8w6qcdIx7tZ_2nyTxYTagrunp68vCt-lcWhcM9YE0wmzvvd0BOkgnQiTCGHMXMLjhEzoQQwdvqGxJdnyjy_LSC8ThBcUSB-c-K_Ego_cpIhXWN6Wl3w5q0QiRBQ4YGxtuQXxkHyn3p3QBNldcPTQWlN3MQJdMx4Dc-vuutNKFV2vbSPK8bsZQ"/>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">No Active Assessments</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-xl max-w-[280px]">
+            Validate your technical proficiency. Complete targeted evaluations to stand out to premium employers.
+          </p>
+          <a href="skills.html" class="bg-surface-container-lowest border border-outline text-on-surface font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-surface-container-high transition-colors flex items-center gap-2">
+            Explore Assessments
+          </a>
+        </div>
+
+        <!-- 3. No Applications -->
+        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center text-center min-h-[400px] hover:shadow-lg transition-shadow duration-300 group">
+          <div class="w-48 h-48 mb-xl relative opacity-80 group-hover:opacity-100 transition-opacity">
+            <img alt="No Applications Illustration" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGs0-vf02d6ijwrkHrOyNjtZ01LIcWOwmxg95zbsCmwTqlm91lHP9YNkDMT6BBGIIbICV79OAHARnrDMGENIcQTfvcgCTIB89H0dGtaJ2AEIixEPKQAL08DAyYFyf4xmTVDOCjuL_hXAH9TgH4Q9CIqFTgOXDfdJlf2hKqT_ZCDNiORcOZ0dlzo76U5XTZpLxjDS4ahbWYdnY3XPzM9CKzhXFV9KgUgACBvfLs7-o2Pbx0HkkXc8B66A"/>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Pipeline Empty</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-xl max-w-[280px]">
+            You haven't initiated any application workflows. Discover roles matched to your verified skill matrix.
+          </p>
+          <a href="opportunities.html" class="bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-surface-tint transition-colors flex items-center gap-2">
+            Find Jobs
+          </a>
+        </div>
+
+        <!-- 4. Featured Banner Component -->
+        <div class="bg-surface-container-lowest border-l-4 border-l-primary border border-outline-variant rounded-xl p-xl flex flex-col md:flex-row items-center justify-between min-h-[300px] md:col-span-2 lg:col-span-3 hover:shadow-lg transition-shadow duration-300 overflow-hidden relative">
+          <div class="flex-1 text-left z-10 p-md">
+            <span class="inline-block px-2 py-1 bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider rounded mb-md">Portfolio</span>
+            <h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-sm">Showcase Your Expertise</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-xl max-w-md">
+              Practical application is the strongest indicator of capability. Upload code repositories, case studies, or design files to build your technical portfolio.
+            </p>
+            <a href="profile.html" class="bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-surface-tint transition-colors inline-flex items-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">add</span>
+              Add Project
+            </a>
+          </div>
+          <div class="w-48 h-48 md:w-64 md:h-64 relative z-10 flex-shrink-0 mt-lg md:mt-0 opacity-90 group-hover:opacity-100 transition-opacity">
+            <img alt="No Projects Illustration" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqK4NcnckcfejuedZhBAGfi5BO6GG1TU47i96RAN2zD64czTQ__ceL7Fy8BlDWIgWia8dAK18epztUS95tgWoEqQbiZongH4f49JkepHllaqS3e8IzE60Jx4Wkt5kX1SqmFESZpOTbIIMV_rHlUBXKsS1Ob_GdE3Pr_CV2uHJU3sN4yY-MoSLNuwK6745y6XCo7WKvhEzrTEhEJ_C9dC6WjBjVbpqIIiPFa9EwozMFfc5t0U2rB2jfvA"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

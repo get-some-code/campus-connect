@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* ─── Tailwind v4 Theme (colors + shadows only — NO custom spacing to avoid
+       overriding Tailwind's built-in max-w-sm/md/lg/xl/2xl/3xl etc.) ────── */
+@theme {
+  /* Brand Colors */
+  --color-primary:                  #3525cd;
+  --color-primary-dark:             #2a1ba8;
+  --color-primary-container:        #4f46e5;
+  --color-on-primary:               #ffffff;
+  --color-on-primary-container:     #dad7ff;
+  --color-primary-fixed:            #ebe9ff;
+  --color-surface-tint:             #3525cd;
+
+  --color-secondary:                #6b38d4;
+  --color-secondary-container:      #8455ef;
+  --color-secondary-fixed:          #e9ddff;
+  --color-secondary-fixed-dim:      #d0bcff;
+
+  --color-surface:                  #f9f9ff;
+  --color-on-surface:               #141b2b;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low:    #f1f3ff;
+  --color-surface-container:        #e9edff;
+  --color-surface-container-high:   #e1e8fd;
+  --color-surface-variant:          #dce2f7;
+  --color-on-surface-variant:       #464555;
+
+  --color-outline:                  #777587;
+  --color-outline-variant:          #c7c4d8;
+
+  --color-background:               #f9f9ff;
+  --color-on-background:            #141b2b;
+
+  --color-error:                    #ba1a1a;
+  --color-error-container:          #ffdad6;
+  --color-on-error-container:       #93000a;
+
+  /* Custom shadow (shadow-xs doesn't exist in Tailwind by default) */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05), 0 1px 1px rgba(0,0,0,0.03);
+}
+
+/* ─── Material Symbols Icon Font ─────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── Override Tailwind preflight & hide dev portals ─────────────────────── */
+html { scroll-behavior: auto !important; }
+
+nextjs-portal,
+#next-dev-tools,
+[data-nextjs-toast],
+[data-nextjs-toast-errors],
+[data-nextjs-dialog-overlay] {
+  display: none !important;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #f9f9ff;
+  color: #141b2b;
+  min-height: 100vh;
+}
+
+/* ─── Typography Scale ───────────────────────────────────────────────────── */
+.text-display,     .font-display     { font-size: 3rem;     line-height: 1.1;  font-weight: 700; letter-spacing: -0.04em; }
+.text-headline-lg, .font-headline-lg { font-size: 2rem;     line-height: 1.25; font-weight: 700; letter-spacing: -0.03em; }
+.text-headline-md, .font-headline-md { font-size: 1.25rem;  line-height: 1.4;  font-weight: 600; letter-spacing: -0.02em; }
+.text-body-lg,     .font-body-lg     { font-size: 1.125rem; line-height: 1.7;  font-weight: 400; }
+.text-body-md,     .font-body-md     { font-size: 1rem;     line-height: 1.6;  font-weight: 400; }
+.text-body-sm,     .font-body-sm     { font-size: 0.875rem; line-height: 1.5;  font-weight: 400; }
+.text-label-md,    .font-label-md    { font-size: 0.875rem; line-height: 1;    font-weight: 500; letter-spacing: 0.01em; }
+.text-label-sm,    .font-label-sm    { font-size: 0.75rem;  line-height: 1;    font-weight: 600; letter-spacing: 0.02em; }
+
+/* ─── Custom Spacing Utilities ───────────────────────────────────────────── */
+/*  These are NOT in @theme so they don't conflict with Tailwind's built-in
+    container/max-width scale (max-w-sm, max-w-xl, max-w-3xl, etc.)         */
+
+/* gap */
+.gap-xs    { gap: 0.25rem; }
+.gap-sm    { gap: 0.5rem; }
+.gap-md    { gap: 1rem; }
+.gap-lg    { gap: 1.5rem; }
+.gap-xl    { gap: 2rem; }
+.gap-2xl   { gap: 3rem; }
+.gap-3xl   { gap: 4rem; }
+.gap-gutter { gap: 1.5rem; }
+
+/* padding-x */
+.px-xs     { padding-left: 0.25rem; padding-right: 0.25rem; }
+.px-sm     { padding-left: 0.5rem;  padding-right: 0.5rem;  }
+.px-md     { padding-left: 1rem;    padding-right: 1rem;    }
+.px-lg     { padding-left: 1.5rem;  padding-right: 1.5rem;  }
+.px-xl     { padding-left: 2rem;    padding-right: 2rem;    }
+.px-2xl    { padding-left: 3rem;    padding-right: 3rem;    }
+.px-3xl    { padding-left: 4rem;    padding-right: 4rem;    }
+.px-gutter { padding-left: 1.5rem;  padding-right: 1.5rem;  }
+.px-margin { padding-left: 2rem;    padding-right: 2rem;    }
+
+/* padding-y */
+.py-xs     { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-sm     { padding-top: 0.5rem;  padding-bottom: 0.5rem;  }
+.py-md     { padding-top: 1rem;    padding-bottom: 1rem;    }
+.py-lg     { padding-top: 1.5rem;  padding-bottom: 1.5rem;  }
+.py-xl     { padding-top: 2rem;    padding-bottom: 2rem;    }
+.py-2xl    { padding-top: 3rem;    padding-bottom: 3rem;    }
+.py-3xl    { padding-top: 4rem;    padding-bottom: 4rem;    }
+.py-gutter { padding-top: 1.5rem;  padding-bottom: 1.5rem;  }
+.py-margin { padding-top: 2rem;    padding-bottom: 2rem;    }
+
+/* padding-all */
+.p-xs     { padding: 0.25rem; }
+.p-sm     { padding: 0.5rem;  }
+.p-md     { padding: 1rem;    }
+.p-lg     { padding: 1.5rem;  }
+.p-xl     { padding: 2rem;    }
+.p-2xl    { padding: 3rem;    }
+.p-3xl    { padding: 4rem;    }
+.p-gutter { padding: 1.5rem;  }
+.p-margin { padding: 2rem;    }
+
+/* margin-top */
+.mt-xs  { margin-top: 0.25rem; }
+.mt-sm  { margin-top: 0.5rem;  }
+.mt-md  { margin-top: 1rem;    }
+.mt-lg  { margin-top: 1.5rem;  }
+.mt-xl  { margin-top: 2rem;    }
+.mt-2xl { margin-top: 3rem;    }
+
+/* margin-bottom */
+.mb-xs  { margin-bottom: 0.25rem; }
+.mb-sm  { margin-bottom: 0.5rem;  }
+.mb-md  { margin-bottom: 1rem;    }
+.mb-lg  { margin-bottom: 1.5rem;  }
+.mb-xl  { margin-bottom: 2rem;    }
+.mb-2xl { margin-bottom: 3rem;    }
+
+/* margin-x */
+.mx-xs  { margin-left: 0.25rem; margin-right: 0.25rem; }
+.mx-sm  { margin-left: 0.5rem;  margin-right: 0.5rem;  }
+.mx-md  { margin-left: 1rem;    margin-right: 1rem;    }
+.mx-lg  { margin-left: 1.5rem;  margin-right: 1.5rem;  }
+
+/* space-y */
+.space-y-xs > * + *  { margin-top: 0.25rem; }
+.space-y-sm > * + *  { margin-top: 0.5rem;  }
+.space-y-md > * + *  { margin-top: 1rem;    }
+.space-y-lg > * + *  { margin-top: 1.5rem;  }
+.space-y-xl > * + *  { margin-top: 2rem;    }
+.space-y-2xl > * + * { margin-top: 3rem;    }
+
+/* Responsive overrides — md breakpoint (768px) */
+@media (min-width: 768px) {
+  .md\:px-xl  { padding-left: 2rem;   padding-right: 2rem;   }
+  .md\:px-lg  { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .md\:py-3xl { padding-top: 4rem;    padding-bottom: 4rem;  }
+  .md\:py-xl  { padding-top: 2rem;    padding-bottom: 2rem;  }
+  .md\:p-xl   { padding: 2rem; }
+  .md\:p-lg   { padding: 1.5rem; }
+  .md\:gap-xl { gap: 2rem; }
+  .md\:gap-lg { gap: 1.5rem; }
+}
+
+/* ─── Glassmorphism ──────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(199, 196, 216, 0.4);
+}
+
+/* ─── Gradient Text ──────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #3525cd 0%, #8455ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Hero background ────────────────────────────────────────────────────── */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(53,37,205,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(107,56,212,0.05) 0%, transparent 55%),
+    #f9f9ff;
+}
+
+/* ─── Card Hover ─────────────────────────────────────────────────────────── */
+.card-hover,
+.feature-card {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.18s ease;
+}
+.card-hover:hover,
+.feature-card:hover {
+  box-shadow: 0 6px 20px rgba(53, 37, 205, 0.1), 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-color: #4f46e5 !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-up { animation: fade-up  0.5s ease both; }
+.animate-fade-in { animation: fade-in  0.35s ease both; }
+.anim-delay-1 { animation-delay: 0.1s; }
+.anim-delay-2 { animation-delay: 0.2s; }
+.anim-delay-3 { animation-delay: 0.3s; }
+
+/* ─── Scrollbars ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar           { width: 6px; height: 6px; }
+::-webkit-scrollbar-track     { background: transparent; }
+::-webkit-scrollbar-thumb     { background: #c7c4d8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #777587; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
