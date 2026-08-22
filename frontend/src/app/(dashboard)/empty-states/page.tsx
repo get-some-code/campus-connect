@@ -99,7 +99,9 @@ const notifications: Notification[] = [
     time: "4 days ago",
     read: true,
     href: "/opportunities/saved",
-    icon: "bookmark_alert",
+    // `bookmark_alert` is not included in the loaded Material Symbols font.
+    // The unsupported ligature renders its trailing text over the card.
+    icon: "bookmark",
     iconBg: "rgba(255,243,224,0.8)",
     iconColor: "#7a4e00",
   },
