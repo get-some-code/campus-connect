@@ -66,4 +66,107 @@ export const api = {
   getAssessmentResult: async (): Promise<AssessmentResult> => {
     return fetchFromFastAPI<AssessmentResult>("/api/v1/assessments/result", MOCK_ASSESSMENT_RESULT);
   },
+
+  addSkill: async (skill: { name: string; category?: string; currentLevel: number; targetLevel: number }): Promise<Skill> => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/skills`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(skill),
+      });
+      if (!response.ok) throw new Error("Failed to add skill");
+      return await response.json();
+    } catch {
+      return { id: `sk-${Date.now()}`, name: skill.name, category: "Technical", currentLevel: skill.currentLevel, targetLevel: skill.targetLevel, status: "In Progress" };
+    }
+  },
+
+  extractSkills: async (text: string): Promise<string[]> => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/student/extract-skills`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text }),
+      });
+      if (!response.ok) throw new Error("Extraction failed");
+      const res = await response.json();
+      return res.extractedSkills || [];
+    } catch {
+      return ["Python", "FastAPI", "React"];
+    }
+  },
+
+  toggleSaveOpportunity: async (id: string): Promise<{ id: string; isSaved: boolean }> => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/opportunities/${id}/save`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!response.ok) throw new Error("Failed to save opportunity");
+      return await response.json();
+    } catch {
+      return { id, isSaved: true };
+    }
+  },
+
+  applyToOpportunity: async (opportunityId: string): Promise<Application> => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/applications`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ opportunityId }),
+      });
+      if (!response.ok) throw new Error("Application failed");
+      return await response.json();
+    } catch {
+      return MOCK_APPLICATIONS[0];
+    }
+  },
+
+  predictAts: async (opportunityId: string, file?: File | null, resumeText?: string) => {
+    try {
+      const formData = new FormData();
+      formData.append("opportunityId", opportunityId);
+      if (file) {
+        formData.append("file", file);
+      }
+      if (resumeText) {
+        formData.append("resumeText", resumeText);
+      }
+      const response = await fetch(`${API_BASE_URL}/api/v1/ats/predict`, {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) throw new Error("ATS prediction failed");
+      return await response.json();
+    } catch {
+      return {
+        opportunityId,
+        atsScore: 78,
+        status: "ready",
+        breakdown: { keywordScore: 32, maxKeywordScore: 40, companyRoleScore: 24, maxCompanyRoleScore: 30, structureScore: 22, maxStructureScore: 30 },
+        matchedKeywords: ["Python", "FastAPI", "React"],
+        missingKeywords: ["Docker", "Kubernetes"],
+        suggestions: [
+          "Add missing core keywords: 'Docker, Kubernetes' under your Tech Stack or Experience sections.",
+          "Include quantified achievements with numbers (e.g. 'Improved API latency by 35%').",
+        ],
+      };
+    }
+  },
+
+  submitAssessment: async (skillName: string, score: number) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/assessments/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skillName, score }),
+      });
+      if (!response.ok) throw new Error("Failed to submit assessment");
+      return await response.json();
+    } catch {
+      return { success: true, skillName, score };
+    }
+  },
 };
+

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api";
 import { Application } from "@/types";
+import AtsScannerModal from "@/components/ats/AtsScannerModal";
 
 const STAGES = ["Applied", "Under Review", "Interview", "Selected"] as const;
 type Stage = typeof STAGES[number];
@@ -17,6 +18,8 @@ const stageColors: Record<Stage, { bg: string; color: string; dot: string }> = {
 
 export default function ApplicationTrackerPage() {
   const [applications, setApplications] = useState<Application[]>([]);
+  const [atsModalApp, setAtsModalApp] = useState<Application | null>(null);
+
   useEffect(() => { api.getApplications().then(setApplications); }, []);
 
   return (
@@ -87,9 +90,35 @@ export default function ApplicationTrackerPage() {
                     <Link href={`/applications/${app.id}`} style={{ color: "inherit" }}>{app.opportunityTitle}</Link>
                   </h3>
                   <p className="text-body-sm" style={{ color: "#464555" }}>{app.companyName}</p>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "0.5rem", borderTop: "1px solid #e9edff" }}>
-                    <span className="text-label-sm" style={{ color: "#777587" }}>Applied: {app.appliedDate}</span>
-                    <Link href={`/applications/${app.id}`} className="text-label-sm font-label-sm" style={{ color: "#3525cd" }}>Details →</Link>
+                  
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.375rem", paddingTop: "0.5rem", borderTop: "1px solid #e9edff" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <span className="text-label-sm" style={{ color: "#777587" }}>Applied: {app.appliedDate}</span>
+                      <Link href={`/applications/${app.id}`} className="text-label-sm font-label-sm" style={{ color: "#3525cd" }}>Details →</Link>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setAtsModalApp(app)}
+                      style={{
+                        width: "100%",
+                        padding: "0.4rem 0.5rem",
+                        background: "#4f46e5",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "0.375rem",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "4px",
+                      }}
+                    >
+                      <span className="material-symbols-outlined" style={{ fontSize: "15px" }}>document_scanner</span>
+                      Scan Resume with ATS
+                    </button>
                   </div>
                 </div>
               )) : (
@@ -102,6 +131,17 @@ export default function ApplicationTrackerPage() {
           );
         })}
       </div>
+
+      {/* Global ATS Modal */}
+      {atsModalApp && (
+        <AtsScannerModal
+          isOpen={!!atsModalApp}
+          onClose={() => setAtsModalApp(null)}
+          opportunityId={atsModalApp.opportunityId || atsModalApp.id}
+          jobTitle={atsModalApp.opportunityTitle}
+          company={atsModalApp.companyName}
+        />
+      )}
     </div>
   );
 }

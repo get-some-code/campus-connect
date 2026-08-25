@@ -3,37 +3,35 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface SidebarProps {
+interface AlumniSidebarProps {
   mobileOpen?: boolean;
   onCloseMobileDrawer?: () => void;
 }
 
-const navLinks = [
-  { label: "Dashboard",       href: "/dashboard",           icon: "dashboard" },
-  { label: "Readiness Portal",href: "/dashboard-v2",        icon: "monitoring" },
-  { label: "Profile",         href: "/profile",             icon: "person" },
-  { label: "Skills Matrix",   href: "/skills",              icon: "terminal" },
-  { label: "Skill Assessment",href: "/skills/assessment",   icon: "quiz" },
-  { label: "Gap Analysis",    href: "/skills/gap-analysis", icon: "analytics" },
-  { label: "Opportunities",   href: "/opportunities",       icon: "work" },
-  { label: "Saved Jobs",      href: "/opportunities/saved", icon: "bookmark" },
-  { label: "Applications",    href: "/applications",        icon: "description" },
-  { label: "Notifications",  href: "/empty-states",        icon: "notifications" },
+const alumniNavLinks = [
+  { label: "Alumni Dashboard", href: "/alumni/dashboard",    icon: "dashboard" },
+  { label: "Profile & Journey",href: "/alumni/profile",      icon: "person" },
+  { label: "Alumni Directory", href: "/alumni/network",      icon: "group" },
+  { label: "Mentorship Center",href: "/alumni/mentorship",   icon: "school" },
+  { label: "Career Experiences",href: "/alumni/experiences", icon: "auto_stories" },
+  { label: "Opportunities",   href: "/alumni/opportunities", icon: "work" },
+  { label: "Hiring Pipeline",  href: "/alumni/applications",  icon: "how_to_reg" },
+  { label: "Industry Insights",href: "/alumni/insights",      icon: "insights" },
+  { label: "Community Feed",   href: "/alumni/community",     icon: "forum" },
+  { label: "Settings",        href: "/alumni/settings",      icon: "settings" },
 ];
 
-export default function Sidebar({ mobileOpen = false, onCloseMobileDrawer }: SidebarProps) {
+export default function AlumniSidebar({ mobileOpen = false, onCloseMobileDrawer }: AlumniSidebarProps) {
   const pathname = usePathname();
 
   const isActive = (href: string) => {
     if (!pathname) return false;
     if (pathname === href) return true;
 
-    // If another navLink matches the current path exactly, this link should not be active
-    const exactMatchExists = navLinks.some((link) => link.href === pathname);
+    const exactMatchExists = alumniNavLinks.some((link) => link.href === pathname);
     if (exactMatchExists) return false;
 
-    // If another navLink is a more specific prefix match, this link should not be active
-    const longerPrefixExists = navLinks.some(
+    const longerPrefixExists = alumniNavLinks.some(
       (link) => link.href !== href && link.href.length > href.length && pathname.startsWith(link.href)
     );
     if (longerPrefixExists) return false;
@@ -64,26 +62,31 @@ export default function Sidebar({ mobileOpen = false, onCloseMobileDrawer }: Sid
           transition: "transform 0.3s ease",
         }}
       >
-        {/* Hide on mobile unless open */}
+        {/* Mobile media query CSS */}
         <style>{`
           @media (max-width: 767px) {
-            .sidebar-aside { transform: ${mobileOpen ? "translateX(0)" : "translateX(-100%)"}; }
+            .alumni-sidebar-aside { transform: ${mobileOpen ? "translateX(0)" : "translateX(-100%)"}; }
           }
           @media (min-width: 768px) {
-            .sidebar-aside { transform: translateX(0) !important; }
+            .alumni-sidebar-aside { transform: translateX(0) !important; }
           }
         `}</style>
 
         {/* Logo header */}
-        <div className="flex items-center justify-between mb-xl px-sm">
+        <div className="flex items-center justify-between mb-lg px-sm">
           <div>
-            <Link href="/" className="block">
-              <span className="text-headline-md font-headline-md font-bold" style={{ color: "#3525cd" }}>
-                CampusConnect
-              </span>
+            <Link href="/alumni/dashboard" className="block">
+              <div className="flex items-center gap-xs">
+                <span className="text-headline-md font-headline-md font-bold" style={{ color: "#3525cd" }}>
+                  CampusConnect
+                </span>
+                <span style={{ fontSize: "0.65rem", fontWeight: 800, padding: "1px 6px", borderRadius: "4px", background: "#3525cd", color: "#fff", textTransform: "uppercase" }}>
+                  ALUMNI
+                </span>
+              </div>
             </Link>
             <p className="text-label-sm font-label-sm" style={{ color: "#464555", marginTop: "2px" }}>
-              Career Readiness Platform
+              Career Network &amp; Mentorship
             </p>
           </div>
           <button
@@ -95,9 +98,9 @@ export default function Sidebar({ mobileOpen = false, onCloseMobileDrawer }: Sid
           </button>
         </div>
 
-        {/* Navigation */}
+        {/* Navigation links */}
         <nav className="flex-1 flex flex-col gap-xs overflow-y-auto no-scrollbar">
-          {navLinks.map((link) => {
+          {alumniNavLinks.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
@@ -106,7 +109,7 @@ export default function Sidebar({ mobileOpen = false, onCloseMobileDrawer }: Sid
                 onClick={onCloseMobileDrawer}
                 className="flex items-center gap-md rounded-lg text-label-md font-label-md transition-all"
                 style={{
-                  padding: "0.5rem 0.75rem",
+                  padding: "0.48rem 0.75rem",
                   color: active ? "#3525cd" : "#464555",
                   background: active ? "#ebe9ff" : "transparent",
                   fontWeight: active ? 600 : 500,
@@ -129,26 +132,17 @@ export default function Sidebar({ mobileOpen = false, onCloseMobileDrawer }: Sid
           })}
         </nav>
 
-        {/* Alumni Portal Switch & Log out */}
-        <div className="pt-xs flex flex-col gap-xs" style={{ borderTop: "1px solid #c7c4d8" }}>
+        {/* Switch to Student View */}
+        <div className="pt-xs" style={{ borderTop: "1px solid #c7c4d8" }}>
           <Link
-            href="/alumni/dashboard"
+            href="/dashboard"
             className="flex items-center gap-md rounded-lg text-label-md font-label-md transition-all"
             style={{ padding: "0.5rem 0.75rem", color: "#3525cd", background: "#f0f0ff", fontWeight: 600 }}
           >
             <span className="material-symbols-outlined" style={{ fontSize: "20px", color: "#3525cd" }}>
-              school
+              swap_horiz
             </span>
-            <span>Alumni Portal →</span>
-          </Link>
-
-          <Link
-            href="/login"
-            className="flex items-center gap-md rounded-lg text-label-md font-label-md transition-all"
-            style={{ padding: "0.5rem 0.75rem", color: "#464555" }}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: "20px", color: "#777587" }}>logout</span>
-            <span>Log Out</span>
+            <span>Switch to Student View</span>
           </Link>
         </div>
       </aside>
