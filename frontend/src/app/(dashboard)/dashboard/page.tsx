@@ -71,17 +71,17 @@ export default function StudentDashboard() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem" }}>
         {/* Profile Strength */}
         <div style={card}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
             <div>
               <p className="text-label-sm font-label-sm" style={{ color: "#464555", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                 Profile Strength
               </p>
-              <p className="text-display font-display" style={{ color: "#3525cd", marginTop: "4px" }}>
+              <p style={{ fontSize: "1.6rem", fontWeight: 800, color: "#3525cd", marginTop: "4px" }}>
                 {profileStrength}%
               </p>
             </div>
-            <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(233,221,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span className="material-symbols-outlined" style={{ fontSize: "20px", color: "#3525cd" }}>person</span>
+            <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(233,221,255,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "18px", color: "#3525cd" }}>person</span>
             </div>
           </div>
           <div style={{ width: "100%", height: "6px", background: "#e9edff", borderRadius: "999px", overflow: "hidden" }}>
@@ -92,13 +92,13 @@ export default function StudentDashboard() {
 
         {/* Skills Mastered */}
         <div style={card}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
             <div>
               <p className="text-label-sm font-label-sm" style={{ color: "#464555", textTransform: "uppercase", letterSpacing: "0.06em" }}>Skills Mastered</p>
-              <p className="text-display font-display" style={{ color: "#141b2b", marginTop: "4px" }}>{user?.skillsMastered ?? 12}</p>
+              <p style={{ fontSize: "1.6rem", fontWeight: 800, color: "#141b2b", marginTop: "4px" }}>{user?.skillsMastered ?? 12}</p>
             </div>
-            <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#e9edff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span className="material-symbols-outlined" style={{ fontSize: "20px", color: "#464555" }}>terminal</span>
+            <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#e9edff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "18px", color: "#464555" }}>terminal</span>
             </div>
           </div>
           <Link href="/skills" className="inline-flex items-center gap-xs text-label-md font-label-md" style={{ color: "#3525cd" }}>
@@ -108,17 +108,33 @@ export default function StudentDashboard() {
 
         {/* Active Applications */}
         <div style={card}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
             <div>
               <p className="text-label-sm font-label-sm" style={{ color: "#464555", textTransform: "uppercase", letterSpacing: "0.06em" }}>Active Applications</p>
-              <p className="text-display font-display" style={{ color: "#141b2b", marginTop: "4px" }}>{applications.length}</p>
+              <p style={{ fontSize: "1.6rem", fontWeight: 800, color: "#141b2b", marginTop: "4px" }}>{applications.length}</p>
             </div>
-            <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#e9edff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span className="material-symbols-outlined" style={{ fontSize: "20px", color: "#464555" }}>description</span>
+            <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#e9edff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "18px", color: "#464555" }}>description</span>
             </div>
           </div>
           <Link href="/applications" className="inline-flex items-center gap-xs text-label-md font-label-md" style={{ color: "#3525cd" }}>
-            Track Kanban Board <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>arrow_forward</span>
+            Track Applications <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>arrow_forward</span>
+          </Link>
+        </div>
+
+        {/* Company Interview Prep */}
+        <div style={card}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+            <div>
+              <p className="text-label-sm font-label-sm" style={{ color: "#3525cd", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 700 }}>Company Interview Prep</p>
+              <p style={{ fontSize: "1.6rem", fontWeight: 800, color: "#141b2b", marginTop: "4px" }}>20 Firms</p>
+            </div>
+            <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#ebe9ff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "18px", color: "#3525cd" }}>psychology</span>
+            </div>
+          </div>
+          <Link href="/interview-prep" className="inline-flex items-center gap-xs text-label-md font-label-md font-bold" style={{ color: "#3525cd" }}>
+            Start Practice (100+ Qs) <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>arrow_forward</span>
           </Link>
         </div>
       </div>

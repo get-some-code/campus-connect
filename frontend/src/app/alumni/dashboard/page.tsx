@@ -80,12 +80,12 @@ export default function AlumniDashboardPage() {
       {/* Quick Action Bar */}
       <section style={{ display: "flex", flexWrap: "wrap", gap: "0.625rem" }}>
         {[
+          { label: "Contribute Questions", href: "/alumni/interview-questions", icon: "quiz", color: "#6b38d4" },
           { label: "Offer Mentorship", href: "/alumni/mentorship", icon: "school", color: "#3525cd" },
-          { label: "Conduct Mock Interview", href: "/alumni/mentorship/mock-interviews", icon: "quiz", color: "#6b38d4" },
-          { label: "Share Career Experience", href: "/alumni/experiences", icon: "edit_note", color: "#008bdc" },
+          { label: "Conduct Mock Interview", href: "/alumni/mentorship/mock-interviews", icon: "psychology", color: "#008bdc" },
+          { label: "Share Experience", href: "/alumni/experiences", icon: "edit_note", color: "#4f46e5" },
           { label: "Post Opportunity", href: "/alumni/opportunities/post", icon: "add_circle", color: "#16a34a" },
           { label: "Recommend Student", href: "/alumni/recommendations", icon: "recommend", color: "#d97706" },
-          { label: "Explore Directory", href: "/alumni/network", icon: "group", color: "#4f46e5" },
         ].map((act) => (
           <Link
             key={act.label}

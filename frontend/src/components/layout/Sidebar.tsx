@@ -11,6 +11,8 @@ interface SidebarProps {
 const navLinks = [
   { label: "Dashboard",       href: "/dashboard",           icon: "dashboard" },
   { label: "Readiness Portal",href: "/dashboard-v2",        icon: "monitoring" },
+  { label: "Company Prep",    href: "/interview-prep",      icon: "psychology" },
+  { label: "Alumni Directory",href: "/alumni-directory",    icon: "group" },
   { label: "Profile",         href: "/profile",             icon: "person" },
   { label: "Skills Matrix",   href: "/skills",              icon: "terminal" },
   { label: "Skill Assessment",href: "/skills/assessment",   icon: "quiz" },

@@ -11,8 +11,8 @@ interface AlumniSidebarProps {
 const alumniNavLinks = [
   { label: "Alumni Dashboard", href: "/alumni/dashboard",    icon: "dashboard" },
   { label: "Profile & Journey",href: "/alumni/profile",      icon: "person" },
-  { label: "Alumni Directory", href: "/alumni/network",      icon: "group" },
-  { label: "Mentorship Center",href: "/alumni/mentorship",   icon: "school" },
+  { label: "Mentorship Requests",href: "/alumni/mentorship", icon: "school" },
+  { label: "Contribute Questions",href: "/alumni/interview-questions", icon: "quiz" },
   { label: "Career Experiences",href: "/alumni/experiences", icon: "auto_stories" },
   { label: "Opportunities",   href: "/alumni/opportunities", icon: "work" },
   { label: "Hiring Pipeline",  href: "/alumni/applications",  icon: "how_to_reg" },

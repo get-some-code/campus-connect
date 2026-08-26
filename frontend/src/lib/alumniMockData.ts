@@ -38,16 +38,46 @@ export interface AlumniProfile {
   adviceForStudents: string;
 }
 
+export interface StudentCertification {
+  name: string;
+  issuer: string;
+  year: string;
+}
+
+export interface StudentExperience {
+  role: string;
+  organization: string;
+  duration: string;
+  description: string;
+}
+
+export interface StudentProject {
+  title: string;
+  tech: string[];
+  description: string;
+  githubLink?: string;
+}
+
 export interface MentorshipRequest {
   id: string;
   studentName: string;
   studentAvatar: string;
+  studentEmail?: string;
+  studentPhone?: string;
+  linkedinUrl?: string;
+  githubUrl?: string;
+  portfolioUrl?: string;
+  resumeUrl?: string;
+  gpa?: string;
   degree: string;
   department: string;
   gradYear: number;
   careerGoal: string;
   skills: string[];
   skillGaps: string[];
+  certifications?: StudentCertification[];
+  experiences?: StudentExperience[];
+  projects?: StudentProject[];
   requestedTopic: string;
   message: string;
   requestedDate: string;
@@ -393,12 +423,51 @@ export const MOCK_MENTORSHIP_REQUESTS: MentorshipRequest[] = [
     id: "mr-1",
     studentName: "Alex Morgan",
     studentAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
-    degree: "B.Tech Computer Science",
+    studentEmail: "alex.morgan@campusconnect.edu",
+    studentPhone: "+1 (555) 234-8901",
+    linkedinUrl: "https://linkedin.com/in/alex-morgan-dev",
+    githubUrl: "https://github.com/alexmorgan-code",
+    portfolioUrl: "https://alexmorgan.dev",
+    resumeUrl: "https://campusconnect.edu/resumes/alex_morgan_resume.pdf",
+    gpa: "3.9 / 4.0",
+    degree: "B.Tech Computer Science & Engineering",
     department: "School of Engineering",
     gradYear: 2027,
     careerGoal: "Backend Engineer @ Tier-1 Tech Company",
-    skills: ["Python", "FastAPI", "React", "SQL"],
-    skillGaps: ["Redis", "Microservices Architecture", "Docker"],
+    skills: ["Python", "FastAPI", "React", "TypeScript", "SQL", "PostgreSQL"],
+    skillGaps: ["Redis", "Microservices Architecture", "Docker", "AWS"],
+    certifications: [
+      { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", year: "2025" },
+      { name: "PostgreSQL Database Administrator Fundamentals", issuer: "Coursera / Stanford", year: "2024" },
+    ],
+    experiences: [
+      {
+        role: "Software Engineering Intern",
+        organization: "NexusTech Labs",
+        duration: "May 2025 – Aug 2025 (4 mos)",
+        description: "Built async FastAPI REST endpoints for user authentication and real-time activity tracking.",
+      },
+      {
+        role: "Lead Campus Web Developer",
+        organization: "CampusConnect Developer Guild",
+        duration: "Sep 2024 – Present",
+        description: "Organized 5 hackathons and led a team of 8 student developers building campus portals.",
+      },
+    ],
+    projects: [
+      {
+        title: "CampusConnect Career & ATS Portal",
+        tech: ["Next.js", "FastAPI", "PostgreSQL", "Tailwind"],
+        description: "Full-stack placement portal with resume matching score algorithm and skill gap analysis.",
+        githubLink: "https://github.com/alexmorgan-code/campus-connect",
+      },
+      {
+        title: "Distributed Rate-Limiter Engine",
+        tech: ["Python", "Redis", "FastAPI"],
+        description: "Implemented sliding window token bucket algorithm for API rate limiting.",
+        githubLink: "https://github.com/alexmorgan-code/rate-limiter",
+      },
+    ],
     requestedTopic: "System Design & Mock Interview",
     message: "Hi Aarav! I saw your career journey at TechNova. I'm preparing for backend developer intern interviews and would love feedback on system design and mock technical coding.",
     requestedDate: "Aug 28, 2026 at 4:00 PM IST",
@@ -409,12 +478,39 @@ export const MOCK_MENTORSHIP_REQUESTS: MentorshipRequest[] = [
     id: "mr-2",
     studentName: "Rohan Das",
     studentAvatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80",
+    studentEmail: "rohan.das@campusconnect.edu",
+    studentPhone: "+91 98765 43210",
+    linkedinUrl: "https://linkedin.com/in/rohan-das-devops",
+    githubUrl: "https://github.com/rohandas-cloud",
+    portfolioUrl: "https://rohandas.tech",
+    resumeUrl: "https://campusconnect.edu/resumes/rohan_das_devops.pdf",
+    gpa: "3.75 / 4.0",
     degree: "B.Tech Information Technology",
     department: "Department of IT",
     gradYear: 2027,
     careerGoal: "DevOps & Cloud Engineer",
-    skills: ["Docker", "Linux", "Python", "Git"],
-    skillGaps: ["Kubernetes", "Terraform", "CI/CD"],
+    skills: ["Docker", "Linux Shell", "Python", "Git", "GitHub Actions", "Nginx"],
+    skillGaps: ["Kubernetes", "Terraform", "CI/CD Pipeline Automation"],
+    certifications: [
+      { name: "Docker Certified Associate (DCA)", issuer: "Mirantis / Docker", year: "2025" },
+      { name: "Linux System Administration (LFCS Prep)", issuer: "Linux Foundation", year: "2024" },
+    ],
+    experiences: [
+      {
+        role: "Cloud Infrastructure Assistant",
+        organization: "University Cloud Lab",
+        duration: "Jan 2025 – Present",
+        description: "Managed Linux server instances, set up automated backup scripts, and maintained Nginx reverse proxies.",
+      },
+    ],
+    projects: [
+      {
+        title: "Automated Microservices Deployer",
+        tech: ["Docker", "Bash", "GitHub Actions", "Python"],
+        description: "Created CI/CD pipeline script automating multi-stage container builds and push to Docker Hub.",
+        githubLink: "https://github.com/rohandas-cloud/auto-deployer",
+      },
+    ],
     requestedTopic: "DevOps Career Roadmap & Docker Guidance",
     message: "Respected Senior, I am building my DevOps portfolio. Could you guide me on container orchestration best practices and how to structure my resume?",
     requestedDate: "Aug 29, 2026 at 6:30 PM IST",
@@ -425,12 +521,39 @@ export const MOCK_MENTORSHIP_REQUESTS: MentorshipRequest[] = [
     id: "mr-3",
     studentName: "Ananya Roy",
     studentAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+    studentEmail: "ananya.roy@campusconnect.edu",
+    studentPhone: "+91 98123 65478",
+    linkedinUrl: "https://linkedin.com/in/ananya-roy-ai",
+    githubUrl: "https://github.com/ananyaroy-code",
+    portfolioUrl: "https://ananyaroy.dev",
+    resumeUrl: "https://campusconnect.edu/resumes/ananya_roy_resume.pdf",
+    gpa: "3.92 / 4.0",
     degree: "B.Tech AI & Data Science",
     department: "Department of AI",
     gradYear: 2026,
     careerGoal: "Full Stack Engineer (React + Python)",
-    skills: ["React", "TypeScript", "Python", "FastAPI"],
-    skillGaps: ["System Design", "AWS Deployment"],
+    skills: ["React", "TypeScript", "Next.js", "Python", "FastAPI", "PyTorch"],
+    skillGaps: ["System Design", "AWS Deployment", "Microservices"],
+    certifications: [
+      { name: "Meta Front-End Developer Professional Certificate", issuer: "Meta / Coursera", year: "2025" },
+      { name: "Deep Learning Specialization", issuer: "DeepLearning.AI", year: "2024" },
+    ],
+    experiences: [
+      {
+        role: "Frontend Development Intern",
+        organization: "PixelCraft Tech",
+        duration: "Jun 2025 – Aug 2025",
+        description: "Developed responsive React UI components with TypeScript and Tailwind CSS.",
+      },
+    ],
+    projects: [
+      {
+        title: "AI Document Search Engine (RAG)",
+        tech: ["Next.js", "FastAPI", "PyTorch", "Pinecone"],
+        description: "Generative AI application for querying PDF academic documents using vector embeddings.",
+        githubLink: "https://github.com/ananyaroy-code/ai-doc-search",
+      },
+    ],
     requestedTopic: "Resume Review & First Job Transition",
     message: "Hello Aarav! I am applying for associate software engineer roles at TechNova and Razorpay. Would you mind reviewing my resume and portfolio projects?",
     requestedDate: "Aug 30, 2026 at 5:00 PM IST",
@@ -443,12 +566,38 @@ export const MOCK_MENTORSHIP_REQUESTS: MentorshipRequest[] = [
     id: "mr-4",
     studentName: "Karthik Subramanian",
     studentAvatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80",
+    studentEmail: "karthik.s@campusconnect.edu",
+    studentPhone: "+91 97654 12309",
+    linkedinUrl: "https://linkedin.com/in/karthik-subramanian-cs",
+    githubUrl: "https://github.com/karthik-subramanian",
+    portfolioUrl: "https://karthik.dev",
+    resumeUrl: "https://campusconnect.edu/resumes/karthik_s_resume.pdf",
+    gpa: "3.88 / 4.0",
     degree: "B.Tech Computer Science",
     department: "School of Engineering",
     gradYear: 2026,
     careerGoal: "Backend Developer @ Microsoft",
-    skills: ["Python", "FastAPI", "SQL", "Git"],
-    skillGaps: ["Microservices", "Redis"],
+    skills: ["Python", "FastAPI", "SQL", "Git", "C++", "Data Structures"],
+    skillGaps: ["Microservices", "Redis Caching"],
+    certifications: [
+      { name: "Algorithms Specialization", issuer: "Stanford University", year: "2024" },
+    ],
+    experiences: [
+      {
+        role: "Backend Intern",
+        organization: "FinFlow Startup",
+        duration: "May 2025 – Jul 2025",
+        description: "Optimized database queries and built financial ledger REST services.",
+      },
+    ],
+    projects: [
+      {
+        title: "High Throughput Payment Gateway Engine",
+        tech: ["Python", "FastAPI", "PostgreSQL"],
+        description: "Simulated payment processing backend supporting concurrent webhook callbacks.",
+        githubLink: "https://github.com/karthik-subramanian/payment-gateway",
+      },
+    ],
     requestedTopic: "Backend Coding & Database Optimization",
     message: "Completed our first session! Thanks for the Redis caching tips.",
     requestedDate: "Aug 22, 2026",
